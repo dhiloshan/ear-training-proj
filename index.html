@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ear Training Platform</title>
+        <script type="module">
+            import * as Tone from "https://cdn.skypack.dev/tone";
+
+            document.querySelector("button")?.addEventListener("click", async () => {
+                await Tone.start(); // required for autoplay policy
+                const synth = new Tone.Synth().toDestination();
+                synth.triggerAttackRelease("C4", "2n");
+                console.log("audio is ready");
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Demo!</h1>
+        <button>This is a cool thing</button>
+       <!--  <script src="index.js"></script> -->
+    </body>
+</html>
