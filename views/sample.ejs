@@ -1,13 +1,27 @@
 <%- include("partials/header.ejs") %>
 <%- include("partials/hero.ejs") %>
-<div class="buttons-container">
-    <button class="note" data-note="C">C</button>
-    <button class="note" data-note="D">D</button>
-    <button class="note" data-note="E">E</button>
-    <button class="note" data-note="F">F</button>
-    <button class="note" data-note="G">G</button>
-    <button class="note" data-note="A">A</button>
-    <button class="note" data-note="B">B</button>
+ 
+<div class="notes-container">
+    <div class="notes-container-sub notes-container__sharp">
+        <button class="note" data-note="C#">C#</button>
+        <button class="note" data-note="D#">D#</button>
+        <button class="note" data-note="F#">F#</button>
+        <button class="note" data-note="G#">G#</button>
+        <button class="note" data-note="A#">A#</button>
+    </div>
+
+    <div class="notes-container-sub notes-container__natural">
+        <button class="note" data-note="C">C</button>
+        <button class="note" data-note="D">D</button>
+        <button class="note" data-note="E">E</button>
+        <button class="note" data-note="F">F</button>
+        <button class="note" data-note="G">G</button>
+        <button class="note" data-note="A">A</button>
+        <button class="note" data-note="B">B</button>
+    </div>
 </div>
-<script type="module" src="listen.js"></script>
+<a href="/" class="page-link">Main</a>
+
+<script type="module" src="/src/listen.js"></script>
+
 <%- include("partials/footer.ejs") %>
