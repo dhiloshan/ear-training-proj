@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %>
+<%- include("partials/hero.ejs") %>
+
+<div class="game-container">
+    <h1 class="game-container__title">Game</h1>
+    <button class="game-container__button--start">Start</button>
+    <div class="game-container__form-group">
+        <label for="interval-size" class="game-container__form-label">Interval Size:</label>
+        <select id="interval-size" class="game-container__form-select">
+            <option value="1">Unison (1)</option>
+            <option value="2">Second (2)</option>
+            <option value="3">Third (3)</option>
+            <option value="4">Fourth (4)</option>
+            <option value="5">Fifth (5)</option>
+            <option value="6">Sixth (6)</option>
+            <option value="7">Seventh (7)</option>
+            <option value="8">Octave (8)</option>
+        </select>
+    </div>
+    <button class="game-container__button--check">Check Answer</button>
+</div>
+
+<a href="/" class="page-link">Main</a>
+
+<script type="module" src="/src/game.js"></script>
+
+<%- include("partials/footer.ejs") %>

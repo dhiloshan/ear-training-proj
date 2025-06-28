@@ -19,6 +19,10 @@ app.get("/sample", (req, res) => {
     res.render("sample.ejs");
 })
 
+app.get("/game", (req, res) => {
+    res.render("game.ejs");
+})
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}!`);
 })
