@@ -12,18 +12,22 @@ async function init(){
 const naturalNotes = ["C", "D", "E", "F", "G", "A", "B"];
 const sharpNotes = ["C#", "D#", "F#", "G#", "A#"];
 
+let startGame = false;
+let idx1, idx2, note1, note2;
+
 document.querySelector(".game-container__button--start")?.addEventListener("click", async () => {
     console.log("start game");
-    let idx1 = Math.floor(Math.random() * naturalNotes.length);
-    let idx2 = Math.floor(Math.random() * naturalNotes.length);
+    startGame = true;
+    idx1 = Math.floor(Math.random() * naturalNotes.length);
+    idx2 = Math.floor(Math.random() * naturalNotes.length);
 
     // Ensure idx1 <= idx2
     if(idx1 > idx2) {
         [idx1, idx2] = [idx2, idx1];
     }
 
-    let note1 = naturalNotes[idx1];
-    let note2 = naturalNotes[idx2];
+    note1 = naturalNotes[idx1];
+    note2 = naturalNotes[idx2];
 
     if (!note1 || !note2) {
         console.error("Invalid note:", note1, note2);
@@ -38,14 +42,20 @@ document.querySelector(".game-container__button--start")?.addEventListener("clic
 
     console.log(`${note1}4`);
     console.log(`${note2}4`);
-    document.querySelector(".game-container__button--check")?.addEventListener("click", () => {
-        console.log("check answer");
-        let userAnswer = document.querySelector("#interval-size").value;
-        let correctAnswer = idx2 - idx1 + 1;    
-        if(userAnswer == correctAnswer) {
-            console.log("correct!");
-        } else {
-            console.log(`incorrect, the correct answer is ${correctAnswer}`);
-        }
-    });
+});
+
+document.querySelector(".game-container__button--check")?.addEventListener("click", () => {
+    if(!startGame) {
+        console.log("Please start the game first!");
+        return;
+    }
+    console.log("check answer");
+    let userAnswer = document.querySelector("#interval-size").value;
+    let correctAnswer = idx2 - idx1 + 1;    
+    if(userAnswer == correctAnswer) {
+        console.log("correct!");
+    } else {
+        console.log(`incorrect, the correct answer is ${correctAnswer}`);
+    }
+    startGame = false;
 });
